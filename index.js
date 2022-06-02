@@ -8,7 +8,26 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (datestemp, recno) => {
+  if (typeof (recno) == 'number') {
+    return `${new Date(datestemp[recno]).valueOf() / 1000}`;
+  } else {
+    let sresult = ''
+    let dataEpoch = []
+    for (item of datestemp) {
+      let sconvert = new Date(item).valueOf() / 1000
+      dataEpoch.push(sconvert)
+    }
+    dataEpoch = dataEpoch.sort()
+    for (item of dataEpoch) {
+      if (sresult != '') {
+        sresult += '-'
+      }
+      sresult += `${item}`
+    }
+    return sresult
+  }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
